@@ -23,6 +23,8 @@
 		37EF864018BB27D100DCB929 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37EF863E18BB27D100DCB929 /* InfoPlist.strings */; };
 		37EF864218BB27D100DCB929 /* my_noteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864118BB27D100DCB929 /* my_noteTests.m */; };
 		37EF864C18BB282200DCB929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF864B18BB282200DCB929 /* Main.storyboard */; };
+		37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864E18BB289900DCB929 /* NoteListViewController.m */; };
+		37EF865218BB292500DCB929 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865118BB292500DCB929 /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		37EF863F18BB27D100DCB929 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		37EF864118BB27D100DCB929 /* my_noteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = my_noteTests.m; sourceTree = "<group>"; };
 		37EF864B18BB282200DCB929 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		37EF864D18BB289900DCB929 /* NoteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListViewController.h; sourceTree = "<group>"; };
+		37EF864E18BB289900DCB929 /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
+		37EF865018BB292500DCB929 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		37EF865118BB292500DCB929 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,10 @@
 				37EF862718BB27D100DCB929 /* AppDelegate.h */,
 				37EF862818BB27D100DCB929 /* AppDelegate.m */,
 				37EF864B18BB282200DCB929 /* Main.storyboard */,
+				37EF864D18BB289900DCB929 /* NoteListViewController.h */,
+				37EF864E18BB289900DCB929 /* NoteListViewController.m */,
+				37EF865018BB292500DCB929 /* Note.h */,
+				37EF865118BB292500DCB929 /* Note.m */,
 				37EF862D18BB27D100DCB929 /* Images.xcassets */,
 				37EF862A18BB27D100DCB929 /* my_note.xcdatamodeld */,
 				37EF861F18BB27D100DCB929 /* Supporting Files */,
@@ -252,6 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37EF865218BB292500DCB929 /* Note.m in Sources */,
+				37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */,
 				37EF862C18BB27D100DCB929 /* my_note.xcdatamodeld in Sources */,
 				37EF862918BB27D100DCB929 /* AppDelegate.m in Sources */,
 				37EF862518BB27D100DCB929 /* main.m in Sources */,
