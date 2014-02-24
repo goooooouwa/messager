@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.textView.text = self.note.note;
+    self.textView.text = self.note.content;
 }
 
 - (void)didReceiveMemoryWarning

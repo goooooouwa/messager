@@ -30,10 +30,10 @@
 - (void)loadInitialData
 {
     Note *note1 = [[Note alloc] init];
-    note1.note = @"Today is a good day.";
+    note1.content = @"Today is a good day.";
     [self.notes addObject:note1];
     Note *note2 = [[Note alloc] init];
-    note2.note = @"I'm in a good mood.";
+    note2.content = @"I'm in a good mood.";
     [self.notes addObject:note2];
 }
 
@@ -86,7 +86,7 @@
     
     // Configure the cell...
     Note *note = [self.notes objectAtIndex:indexPath.row];
-    cell.textLabel.text = note.note;
+    cell.textLabel.text = note.content;
     return cell;
 }
 

@@ -10,7 +10,7 @@
 
 @interface Note : NSObject
 
-@property NSString *note;
+@property NSString *content;
 @property NSDate *creationDate;
 
 @end
