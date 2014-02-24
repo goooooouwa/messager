@@ -25,6 +25,7 @@
 		37EF864C18BB282200DCB929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF864B18BB282200DCB929 /* Main.storyboard */; };
 		37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864E18BB289900DCB929 /* NoteListViewController.m */; };
 		37EF865218BB292500DCB929 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865118BB292500DCB929 /* Note.m */; };
+		37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865418BB2D0900DCB929 /* NoteItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		37EF864E18BB289900DCB929 /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		37EF865018BB292500DCB929 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		37EF865118BB292500DCB929 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		37EF865318BB2D0900DCB929 /* NoteItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteItemViewController.h; sourceTree = "<group>"; };
+		37EF865418BB2D0900DCB929 /* NoteItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				37EF862718BB27D100DCB929 /* AppDelegate.h */,
 				37EF862818BB27D100DCB929 /* AppDelegate.m */,
 				37EF864B18BB282200DCB929 /* Main.storyboard */,
+				37EF865318BB2D0900DCB929 /* NoteItemViewController.h */,
+				37EF865418BB2D0900DCB929 /* NoteItemViewController.m */,
 				37EF864D18BB289900DCB929 /* NoteListViewController.h */,
 				37EF864E18BB289900DCB929 /* NoteListViewController.m */,
 				37EF865018BB292500DCB929 /* Note.h */,
@@ -263,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37EF865218BB292500DCB929 /* Note.m in Sources */,
+				37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */,
 				37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */,
 				37EF862C18BB27D100DCB929 /* my_note.xcdatamodeld in Sources */,
 				37EF862918BB27D100DCB929 /* AppDelegate.m in Sources */,

@@ -30,7 +30,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vdW-nO-umI" kind="push" id="seN-BU-Lg0"/>
+                                    <segue destination="vdW-nO-umI" kind="push" identifier="ShowNoteContent" id="seN-BU-Lg0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="767" y="-49"/>
         </scene>
-        <!--View Controller-->
+        <!--Note Item View Controller-->
         <scene sceneID="xy6-vS-y0u">
             <objects>
-                <viewController id="vdW-nO-umI" sceneMemberID="viewController">
+                <viewController id="vdW-nO-umI" customClass="NoteItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vei-Zv-PmB"/>
                         <viewControllerLayoutGuide type="bottom" id="4mt-DY-ir1"/>
@@ -69,6 +69,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bSl-xe-pTd"/>
+                    <connections>
+                        <outlet property="textView" destination="eas-QV-jSI" id="Hba-71-CFp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLP-La-zud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

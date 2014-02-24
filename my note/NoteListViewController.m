@@ -8,6 +8,7 @@
 
 #import "NoteListViewController.h"
 #import "Note.h"
+#import "NoteItemViewController.h"
 
 @interface NoteListViewController ()
 
@@ -16,6 +17,15 @@
 @end
 
 @implementation NoteListViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
+        NoteItemViewController *noteItemViewController = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
+    }
+}
 
 - (void)loadInitialData
 {
