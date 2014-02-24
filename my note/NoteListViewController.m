@@ -18,12 +18,21 @@
 
 @implementation NoteListViewController
 
+-(void)selectedValueIs:(NSString *)value
+{
+    // do whatever you want with the value string
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
         NoteItemViewController *noteItemViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
+        
+        noteItemViewController.selectedValueDelegate = self;
+        [self selectedValueIs:indexPath];
+        NSLog(@"selected value is: %d", indexPath.row);
     }
 }
 

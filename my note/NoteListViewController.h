@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NoteItemViewController.h"
 
-@interface NoteListViewController : UITableViewController
+@interface NoteListViewController : UITableViewController <myDelegate>
 
 @end
