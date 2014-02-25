@@ -22,7 +22,7 @@
 - (void)noteCreated:(Note *)note
 {
     if (note.content.length == 0) {
-        [self.notes removeLastObject];
+        [self.notes removeObject:note];
     }
     [self.tableView reloadData];
 }
