@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "NoteItemViewController.h"
 
-@interface NoteListViewController : UITableViewController <pushDataBackToListViewController>
+@interface NoteListViewController : UITableViewController
 
 @end

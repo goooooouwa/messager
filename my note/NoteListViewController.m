@@ -18,12 +18,8 @@
 
 @implementation NoteListViewController
 
--(void)itemHasChanged:(id)item
+- (void)viewWillAppear:(BOOL)animated
 {
-    // do whatever you want with the value string
-    Note *note = [[Note alloc] init];
-    note = [self.notes objectAtIndex:1];
-    note = item;
     [self.tableView reloadData];
 }
 
@@ -33,9 +29,6 @@
         NoteItemViewController *noteItemViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
-        
-        noteItemViewController.listViewController = self;
-        NSLog(@"selected value is: %d", indexPath.row);
     }
 }
 

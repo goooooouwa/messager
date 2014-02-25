@@ -19,8 +19,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     self.note.content = self.textView.text;
-    [self.listViewController itemHasChanged:self.note];
-    NSLog(@"item view will disappear");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

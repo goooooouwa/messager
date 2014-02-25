@@ -9,18 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Note.h"
 
-// protocol declaration
-@protocol pushDataBackToListViewController
-
--(void)itemHasChanged:(id)item;
-
-@end
-
-
 @interface NoteItemViewController : UIViewController
 
-// set it as the property
-@property (nonatomic, assign) id<pushDataBackToListViewController> listViewController;
 @property Note *note;
 
 @end
