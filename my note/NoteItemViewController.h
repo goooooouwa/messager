@@ -10,10 +10,9 @@
 #import "Note.h"
 
 // protocol declaration
-@protocol myDelegate
+@protocol pushDataBackToListViewController
 
-@optional
--(void)selectedValueIs:(NSIndexPath *)value;
+-(void)itemHasChanged:(id)item;
 
 @end
 
@@ -21,7 +20,7 @@
 @interface NoteItemViewController : UIViewController
 
 // set it as the property
-@property (nonatomic, assign) id<myDelegate> selectedValueDelegate;
+@property (nonatomic, assign) id<pushDataBackToListViewController> listViewController;
 @property Note *note;
 
 @end

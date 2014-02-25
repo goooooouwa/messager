@@ -18,9 +18,13 @@
 
 @implementation NoteListViewController
 
--(void)selectedValueIs:(NSString *)value
+-(void)itemHasChanged:(id)item
 {
     // do whatever you want with the value string
+    Note *note = [[Note alloc] init];
+    note = [self.notes objectAtIndex:1];
+    note = item;
+    [self.tableView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -30,8 +34,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
         
-        noteItemViewController.selectedValueDelegate = self;
-        [self selectedValueIs:indexPath];
+        noteItemViewController.listViewController = self;
         NSLog(@"selected value is: %d", indexPath.row);
     }
 }
