@@ -9,6 +9,7 @@
 #import "NoteListViewController.h"
 #import "Note.h"
 #import "NoteItemViewController.h"
+#import "NewNoteViewController.h"
 
 @interface NoteListViewController ()
 
@@ -18,6 +19,15 @@
 
 @implementation NoteListViewController
 
+- (void)receiveData:(id)data
+{
+    Note *note = data;
+    if (note.content.length == 0) {
+        [self.notes removeLastObject];
+    }
+    [self.tableView reloadData];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.tableView reloadData];
@@ -25,14 +35,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NoteItemViewController *noteItemViewController = [segue destinationViewController];
     if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
+        NoteItemViewController *noteItemViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
-    } else if ([[segue identifier] isEqualToString:@"NewNote"]) {
-        Note *note = [[Note alloc] init];
-        [self.notes addObject:note];
-        noteItemViewController.note = note;
+    }
+    else if ([[segue identifier] isEqualToString:@"NewNote"]) {
+        NewNoteViewController *newNoteViewController = [segue destinationViewController];
+        Note *newNote = [[Note alloc] init];
+        [self.notes addObject:newNote];
+        newNoteViewController.note = newNote;
+        newNoteViewController.dataReceiver = self;
     }
 }
 

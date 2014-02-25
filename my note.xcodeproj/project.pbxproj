@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37CB47D818BC6CC700681EBF /* NewNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB47D718BC6CC700681EBF /* NewNoteViewController.m */; };
 		37EF861718BB27D100DCB929 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF861618BB27D100DCB929 /* Foundation.framework */; };
 		37EF861918BB27D100DCB929 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF861818BB27D100DCB929 /* CoreGraphics.framework */; };
 		37EF861B18BB27D100DCB929 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF861A18BB27D100DCB929 /* UIKit.framework */; };
@@ -39,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37CB47D618BC6CC700681EBF /* NewNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteViewController.h; sourceTree = "<group>"; };
+		37CB47D718BC6CC700681EBF /* NewNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoteViewController.m; sourceTree = "<group>"; };
+		37CB47D918BC70E000681EBF /* DataReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataReceiver.h; sourceTree = "<group>"; };
 		37EF861318BB27D100DCB929 /* my note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF861618BB27D100DCB929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37EF861818BB27D100DCB929 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +133,9 @@
 				37EF862718BB27D100DCB929 /* AppDelegate.h */,
 				37EF862818BB27D100DCB929 /* AppDelegate.m */,
 				37EF864B18BB282200DCB929 /* Main.storyboard */,
+				37CB47D618BC6CC700681EBF /* NewNoteViewController.h */,
+				37CB47D718BC6CC700681EBF /* NewNoteViewController.m */,
+				37CB47D918BC70E000681EBF /* DataReceiver.h */,
 				37EF865318BB2D0900DCB929 /* NoteItemViewController.h */,
 				37EF865418BB2D0900DCB929 /* NoteItemViewController.m */,
 				37EF864D18BB289900DCB929 /* NoteListViewController.h */,
@@ -270,6 +277,7 @@
 				37EF865218BB292500DCB929 /* Note.m in Sources */,
 				37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */,
 				37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */,
+				37CB47D818BC6CC700681EBF /* NewNoteViewController.m in Sources */,
 				37EF862C18BB27D100DCB929 /* my_note.xcdatamodeld in Sources */,
 				37EF862918BB27D100DCB929 /* AppDelegate.m in Sources */,
 				37EF862518BB27D100DCB929 /* main.m in Sources */,
@@ -473,6 +481,7 @@
 				37EF864718BB27D100DCB929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37EF864818BB27D100DCB929 /* Build configuration list for PBXNativeTarget "my noteTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +490,7 @@
 				37EF864A18BB27D100DCB929 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
