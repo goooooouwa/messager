@@ -19,7 +19,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     self.note.content = self.textView.text;
-    [self.dataReceiver receiveData:self.note];
+    [self.noteCreationDelegate noteCreated:self.note];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

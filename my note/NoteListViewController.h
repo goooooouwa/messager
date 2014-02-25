@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "NoteItemViewController.h"
-#import "DataReceiver.h"
+#import "noteCreationDelegate.h"
 
-@interface NoteListViewController : UITableViewController <DataReceiver>
+@interface NoteListViewController : UITableViewController <noteCreationDelegate>
 
 @end

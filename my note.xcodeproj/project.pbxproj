@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		37CB47D618BC6CC700681EBF /* NewNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteViewController.h; sourceTree = "<group>"; };
 		37CB47D718BC6CC700681EBF /* NewNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoteViewController.m; sourceTree = "<group>"; };
-		37CB47D918BC70E000681EBF /* DataReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataReceiver.h; sourceTree = "<group>"; };
+		37CB47D918BC70E000681EBF /* noteCreationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = noteCreationDelegate.h; sourceTree = "<group>"; };
 		37EF861318BB27D100DCB929 /* my note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF861618BB27D100DCB929 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37EF861818BB27D100DCB929 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,7 +135,7 @@
 				37EF864B18BB282200DCB929 /* Main.storyboard */,
 				37CB47D618BC6CC700681EBF /* NewNoteViewController.h */,
 				37CB47D718BC6CC700681EBF /* NewNoteViewController.m */,
-				37CB47D918BC70E000681EBF /* DataReceiver.h */,
+				37CB47D918BC70E000681EBF /* noteCreationDelegate.h */,
 				37EF865318BB2D0900DCB929 /* NoteItemViewController.h */,
 				37EF865418BB2D0900DCB929 /* NoteItemViewController.m */,
 				37EF864D18BB289900DCB929 /* NoteListViewController.h */,

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Note.h"
-#import "DataReceiver.h"
+#import "noteCreationDelegate.h"
 
 @interface NewNoteViewController : UIViewController
 
 @property Note *note;
-@property (weak) id <DataReceiver> dataReceiver;
+@property (weak) id <noteCreationDelegate> noteCreationDelegate;
 
 @end

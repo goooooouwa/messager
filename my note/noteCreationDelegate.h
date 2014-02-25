@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol DataReceiver <NSObject>
+@protocol noteCreationDelegate <NSObject>
 
-- (void)receiveData:(id)data;
+- (void)noteCreated:(Note *)note;
 
 @end

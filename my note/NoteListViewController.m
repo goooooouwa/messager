@@ -19,9 +19,8 @@
 
 @implementation NoteListViewController
 
-- (void)receiveData:(id)data
+- (void)noteCreated:(Note *)note
 {
-    Note *note = data;
     if (note.content.length == 0) {
         [self.notes removeLastObject];
     }
@@ -45,7 +44,7 @@
         Note *newNote = [[Note alloc] init];
         [self.notes addObject:newNote];
         newNoteViewController.note = newNote;
-        newNoteViewController.dataReceiver = self;
+        newNoteViewController.noteCreationDelegate = self;
     }
 }
 
