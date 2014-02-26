@@ -8,12 +8,13 @@
 
 #import "NoteListViewController.h"
 #import "Note.h"
+#import "AppDelegate.h"
 #import "NoteItemViewController.h"
 #import "NewNoteViewController.h"
 
 @interface NoteListViewController ()
 
-@property NSMutableArray *notes;
+@property (strong, nonatomic)NSArray *notes;
 
 @end
 
@@ -21,10 +22,19 @@
 
 - (void)noteCreated:(Note *)note
 {
-    if (note.content.length == 0) {
-        [self.notes removeObject:note];
+    if (note.content.length != 0) {
+        NSError *error = nil;
+        if (![self.context save:&error]) {
+            NSLog(@"%@",[error localizedDescription]);
+        }
+        
+        // get latest data
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
+        [fetchRequest setEntity:entity];
+        self.notes = (NSMutableArray *)[self.context executeFetchRequest:fetchRequest error:&error];
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -41,8 +51,7 @@
     }
     else if ([[segue identifier] isEqualToString:@"NewNote"]) {
         NewNoteViewController *newNoteViewController = [segue destinationViewController];
-        Note *newNote = [[Note alloc] init];
-        [self.notes addObject:newNote];
+        Note *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
         newNoteViewController.note = newNote;
         newNoteViewController.noteCreationDelegate = self;
     }
@@ -50,12 +59,14 @@
 
 - (void)loadInitialData
 {
-    Note *note1 = [[Note alloc] init];
-    note1.content = @"Today is a good day.";
-    [self.notes addObject:note1];
-    Note *note2 = [[Note alloc] init];
-    note2.content = @"I'm in a good mood.";
-    [self.notes addObject:note2];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *note in self.notes) {
+        NSLog(@"note content: %@", [note valueForKey:@"content"]);
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -70,7 +81,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.notes = [[NSMutableArray alloc] init];
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.context = delegate.managedObjectContext;
     [self loadInitialData];
 
     // Uncomment the following line to preserve selection between presentations.

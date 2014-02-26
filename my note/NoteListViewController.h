@@ -12,4 +12,6 @@
 
 @interface NoteListViewController : UITableViewController <noteCreationDelegate>
 
+@property (strong, nonatomic)NSManagedObjectContext *context;
+
 @end

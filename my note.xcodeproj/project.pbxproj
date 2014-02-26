@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374C996118BDD89300FD55B1 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 374C996018BDD89300FD55B1 /* Note.m */; };
 		37CB47D818BC6CC700681EBF /* NewNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB47D718BC6CC700681EBF /* NewNoteViewController.m */; };
 		37EF861718BB27D100DCB929 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF861618BB27D100DCB929 /* Foundation.framework */; };
 		37EF861918BB27D100DCB929 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF861818BB27D100DCB929 /* CoreGraphics.framework */; };
@@ -25,7 +26,6 @@
 		37EF864218BB27D100DCB929 /* my_noteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864118BB27D100DCB929 /* my_noteTests.m */; };
 		37EF864C18BB282200DCB929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF864B18BB282200DCB929 /* Main.storyboard */; };
 		37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864E18BB289900DCB929 /* NoteListViewController.m */; };
-		37EF865218BB292500DCB929 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865118BB292500DCB929 /* Note.m */; };
 		37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865418BB2D0900DCB929 /* NoteItemViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		374C995F18BDD89300FD55B1 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		374C996018BDD89300FD55B1 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		37CB47D618BC6CC700681EBF /* NewNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteViewController.h; sourceTree = "<group>"; };
 		37CB47D718BC6CC700681EBF /* NewNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoteViewController.m; sourceTree = "<group>"; };
 		37CB47D918BC70E000681EBF /* noteCreationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = noteCreationDelegate.h; sourceTree = "<group>"; };
@@ -64,8 +66,6 @@
 		37EF864B18BB282200DCB929 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		37EF864D18BB289900DCB929 /* NoteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteListViewController.h; sourceTree = "<group>"; };
 		37EF864E18BB289900DCB929 /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
-		37EF865018BB292500DCB929 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		37EF865118BB292500DCB929 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		37EF865318BB2D0900DCB929 /* NoteItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteItemViewController.h; sourceTree = "<group>"; };
 		37EF865418BB2D0900DCB929 /* NoteItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,10 +140,10 @@
 				37EF865418BB2D0900DCB929 /* NoteItemViewController.m */,
 				37EF864D18BB289900DCB929 /* NoteListViewController.h */,
 				37EF864E18BB289900DCB929 /* NoteListViewController.m */,
-				37EF865018BB292500DCB929 /* Note.h */,
-				37EF865118BB292500DCB929 /* Note.m */,
 				37EF862D18BB27D100DCB929 /* Images.xcassets */,
 				37EF862A18BB27D100DCB929 /* my_note.xcdatamodeld */,
+				374C995F18BDD89300FD55B1 /* Note.h */,
+				374C996018BDD89300FD55B1 /* Note.m */,
 				37EF861F18BB27D100DCB929 /* Supporting Files */,
 			);
 			path = "my note";
@@ -274,12 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37EF865218BB292500DCB929 /* Note.m in Sources */,
 				37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */,
 				37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */,
 				37CB47D818BC6CC700681EBF /* NewNoteViewController.m in Sources */,
 				37EF862C18BB27D100DCB929 /* my_note.xcdatamodeld in Sources */,
 				37EF862918BB27D100DCB929 /* AppDelegate.m in Sources */,
+				374C996118BDD89300FD55B1 /* Note.m in Sources */,
 				37EF862518BB27D100DCB929 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
