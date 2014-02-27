@@ -20,8 +20,9 @@
 
 @implementation NoteListViewController
 
-- (void)noteWillChange:(Note *)note
+- (void)noteShouldChange:(Note *)note
 {
+    NSLog(@"note should change delegat: %@", note.content);
     NSError *error;
     if (![self.context save:&error]) {
         NSLog(@"%@",[error localizedDescription]);
@@ -36,6 +37,7 @@
 
 - (void)noteDidChange:(Note *)note
 {
+    NSLog(@"note did change delegate: %@", note.content);
     if (note.content.length == 0) {
         [self.context deleteObject:note];
         NSError *error;
@@ -63,6 +65,7 @@
         NoteItemViewController *noteItemViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
+        noteItemViewController.noteCreationDelegate = self;
     }
     else if ([[segue identifier] isEqualToString:@"NewNote"]) {
         NewNoteViewController *newNoteViewController = [segue destinationViewController];

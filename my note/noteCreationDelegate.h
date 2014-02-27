@@ -10,7 +10,7 @@
 
 @protocol noteCreationDelegate <NSObject>
 
-- (void)noteWillChange:(Note *)note;
+- (void)noteShouldChange:(Note *)note;
 - (void)noteDidChange:(Note *)note;
 
 @end

@@ -16,12 +16,6 @@
 
 @implementation NewNoteViewController
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    self.note.content = self.textView.text;
-    [self.noteCreationDelegate noteWillChange:self.note];
-}
-
 - (void)viewDidDisappear:(BOOL)animated
 {
     [self.noteCreationDelegate noteDidChange:self.note];
@@ -39,9 +33,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.textView.delegate = self;
     self.textView.text = @"";
     [self.textView becomeFirstResponder];
 	// Do any additional setup after loading the view.
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.note.content = textView.text;
+    [self.noteCreationDelegate noteShouldChange:self.note];
+    NSLog(@"text:%@ -> note:%@", textView.text, self.note.content);
 }
 
 - (void)didReceiveMemoryWarning

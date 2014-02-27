@@ -16,11 +16,13 @@
 
 @implementation NoteItemViewController
 
-- (void)viewWillDisappear:(BOOL)animated
+/*
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    self.note.content = self.textView.text;
-    [self.noteCreationDelegate noteWillChange:self.note];
+    NSLog(@"note changed:%@", self.note.content);
+    [self.noteCreationDelegate noteShouldChange:self.note];
 }
+*/
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -40,7 +42,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.textView.delegate = self;
+    //[self.note addObserver:self forKeyPath:@"content" options:NSKeyValueObservingOptionNew context:NULL];
     self.textView.text = self.note.content;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.note.content = textView.text;
+    [self.noteCreationDelegate noteShouldChange:self.note];
+    NSLog(@"text:%@ -> note:%@", textView.text, self.note.content);
 }
 
 - (void)didReceiveMemoryWarning

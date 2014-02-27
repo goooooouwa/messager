@@ -10,7 +10,7 @@
 #import "Note.h"
 #import "noteCreationDelegate.h"
 
-@interface NoteItemViewController : UIViewController
+@interface NoteItemViewController : UIViewController <UITextViewDelegate>
 
 @property Note *note;
 @property id <noteCreationDelegate> noteCreationDelegate;
