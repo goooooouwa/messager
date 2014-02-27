@@ -28,6 +28,7 @@
         NSLog(@"%@",[error localizedDescription]);
     }
     
+    // get latest data
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
     [fetchRequest setEntity:entity];
@@ -52,11 +53,6 @@
         self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
         [self.tableView reloadData];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.tableView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -88,9 +84,6 @@
     [fetchRequest setEntity:entity];
     NSError *error;
     self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
-    for (NSManagedObject *note in self.notes) {
-        NSLog(@"note content: %@", [note valueForKey:@"content"]);
-    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
