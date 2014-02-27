@@ -19,6 +19,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     self.note.content = self.textView.text;
+    [self.noteCreationDelegate noteWillChange:self.note];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.noteCreationDelegate noteDidChange:self.note];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

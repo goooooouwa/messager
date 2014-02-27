@@ -20,10 +20,25 @@
 
 @implementation NoteListViewController
 
-- (void)noteCreated:(Note *)note
+- (void)noteWillChange:(Note *)note
 {
-    if (note.content.length != 0) {
-        NSError *error = nil;
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"%@",[error localizedDescription]);
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
+    [self.tableView reloadData];
+}
+
+- (void)noteDidChange:(Note *)note
+{
+    if (note.content.length == 0) {
+        [self.context deleteObject:note];
+        NSError *error;
         if (![self.context save:&error]) {
             NSLog(@"%@",[error localizedDescription]);
         }
@@ -32,7 +47,7 @@
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
         [fetchRequest setEntity:entity];
-        self.notes = (NSMutableArray *)[self.context executeFetchRequest:fetchRequest error:&error];
+        self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
         [self.tableView reloadData];
     }
 }
@@ -51,7 +66,13 @@
     }
     else if ([[segue identifier] isEqualToString:@"NewNote"]) {
         NewNoteViewController *newNoteViewController = [segue destinationViewController];
+        
         Note *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"%@",[error localizedDescription]);
+        }
+        
         newNoteViewController.note = newNote;
         newNoteViewController.noteCreationDelegate = self;
     }
@@ -62,7 +83,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
     [fetchRequest setEntity:entity];
-    NSError *error = nil;
+    NSError *error;
     self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
     for (NSManagedObject *note in self.notes) {
         NSLog(@"note content: %@", [note valueForKey:@"content"]);
