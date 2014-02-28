@@ -31,49 +31,6 @@
     [self.tableView reloadData];
 }
 
-- (void)noteDidCreate:(Note *)note
-{
-    NSLog(@"note did create: %@", note.content);
-    if (note.content.length > 0) {
-        NSError *error;
-        if (![self.context save:&error]) {
-            NSLog(@"%@",[error localizedDescription]);
-        }
-        
-        // get latest data
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
-        [fetchRequest setEntity:entity];
-        self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
-        [self.tableView reloadData];
-    }
-}
-- (void)noteDidEdit:(Note *)note
-{
-    NSLog(@"note did edit: %@", note.content);
-    [self checkIfEmptyNote:note];
-}
-
-- (void)checkIfEmptyNote:(Note *)note
-{
-    NSLog(@"check if note empty: %@", note.content);
-    if (note.content.length == 0) {
-        [self.context deleteObject:note];
-        NSError *error;
-        if (![self.context save:&error]) {
-            NSLog(@"%@",[error localizedDescription]);
-        }
-    }
-    
-    // get latest data
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
-    [fetchRequest setEntity:entity];
-    self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
-    [self.tableView reloadData];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
