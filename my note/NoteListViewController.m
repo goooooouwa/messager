@@ -15,7 +15,9 @@
 @interface NoteListViewController ()
 
 @property (strong, nonatomic)NSArray *notes;
+@property (strong, nonatomic) NSMutableArray *searchResults;
 @property (strong, nonatomic)NSManagedObjectContext *context;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -47,6 +49,7 @@
     [fetchRequest setEntity:entity];
     NSError *error;
     self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
+    self.searchResults = [NSMutableArray arrayWithCapacity:[self.notes count]];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -63,6 +66,9 @@
     [super viewDidLoad];
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.context = delegate.managedObjectContext;
+    CGRect newBounds = self.tableView.bounds;
+    newBounds.origin.y = newBounds.origin.y + self.searchBar.bounds.size.height;
+    self.tableView.bounds = newBounds;
     [self loadInitialData];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -89,16 +95,28 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.notes count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    } else {
+        return [self.notes count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ListPrototypeCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     // Configure the cell...
-    Note *note = [self.notes objectAtIndex:indexPath.row];
+    Note *note = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        note = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        note = [self.notes objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = note.content;
     return cell;
 }
@@ -153,5 +171,32 @@
 }
 
  */
+
+#pragma mark Content Filtering
+
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+    [self.searchResults removeAllObjects];
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@",searchText];
+    self.searchResults = [NSMutableArray arrayWithArray:[self.notes filteredArrayUsingPredicate:resultPredicate]];
+    
+    NSLog(@"search results:");
+    for (Note *note in self.searchResults) {
+        NSLog(@"note:%@", note.content);
+    }
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    return YES;
+}
 
 @end
