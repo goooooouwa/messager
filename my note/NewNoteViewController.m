@@ -16,9 +16,14 @@
 
 @implementation NewNoteViewController
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.noteCreationDelegate noteShouldChange:self.note];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self.noteCreationDelegate noteDidChange:self.note];
+    [self.noteCreationDelegate checkIfEmptyNote:self.note];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,7 +47,6 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     self.note.content = textView.text;
-    [self.noteCreationDelegate noteShouldChange:self.note];
     NSLog(@"text:%@ -> note:%@", textView.text, self.note.content);
 }
 

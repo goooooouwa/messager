@@ -11,6 +11,6 @@
 @protocol noteCreationDelegate <NSObject>
 
 - (void)noteShouldChange:(Note *)note;
-- (void)noteDidChange:(Note *)note;
+- (void)checkIfEmptyNote:(Note *)note;
 
 @end

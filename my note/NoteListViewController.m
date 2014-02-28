@@ -22,25 +22,8 @@
 
 - (void)noteShouldChange:(Note *)note
 {
-    NSLog(@"note should change delegat: %@", note.content);
-    NSError *error;
-    if (![self.context save:&error]) {
-        NSLog(@"%@",[error localizedDescription]);
-    }
-    
-    // get latest data
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
-    [fetchRequest setEntity:entity];
-    self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
-    [self.tableView reloadData];
-}
-
-- (void)noteDidChange:(Note *)note
-{
-    NSLog(@"note did change delegate: %@", note.content);
-    if (note.content.length == 0) {
-        [self.context deleteObject:note];
+    NSLog(@"note should change delegate: %@", note.content);
+    if (note.content.length > 0) {
         NSError *error;
         if (![self.context save:&error]) {
             NSLog(@"%@",[error localizedDescription]);
@@ -52,6 +35,18 @@
         [fetchRequest setEntity:entity];
         self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
         [self.tableView reloadData];
+    }
+}
+
+- (void)checkIfEmptyNote:(Note *)note
+{
+    NSLog(@"check if note empty: %@", note.content);
+    if (note.content.length == 0) {
+        [self.context deleteObject:note];
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"%@",[error localizedDescription]);
+        }
     }
 }
 
