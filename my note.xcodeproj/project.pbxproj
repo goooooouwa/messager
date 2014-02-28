@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		372F4F6718C0396000953FAF /* NoteNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372F4F6618C0396000953FAF /* NoteNavigationViewController.m */; };
 		374C996118BDD89300FD55B1 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 374C996018BDD89300FD55B1 /* Note.m */; };
 		37CB47D818BC6CC700681EBF /* NewNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CB47D718BC6CC700681EBF /* NewNoteViewController.m */; };
 		37EF861718BB27D100DCB929 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EF861618BB27D100DCB929 /* Foundation.framework */; };
@@ -41,8 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		372F4F6518C0396000953FAF /* NoteNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteNavigationViewController.h; sourceTree = "<group>"; };
-		372F4F6618C0396000953FAF /* NoteNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteNavigationViewController.m; sourceTree = "<group>"; };
 		374C995F18BDD89300FD55B1 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		374C996018BDD89300FD55B1 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		37CB47D618BC6CC700681EBF /* NewNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteViewController.h; sourceTree = "<group>"; };
@@ -136,8 +133,6 @@
 				37EF862718BB27D100DCB929 /* AppDelegate.h */,
 				37EF862818BB27D100DCB929 /* AppDelegate.m */,
 				37EF864B18BB282200DCB929 /* Main.storyboard */,
-				372F4F6518C0396000953FAF /* NoteNavigationViewController.h */,
-				372F4F6618C0396000953FAF /* NoteNavigationViewController.m */,
 				37CB47D618BC6CC700681EBF /* NewNoteViewController.h */,
 				37CB47D718BC6CC700681EBF /* NewNoteViewController.m */,
 				37CB47D918BC70E000681EBF /* noteCreationDelegate.h */,
@@ -285,7 +280,6 @@
 				37EF862C18BB27D100DCB929 /* my_note.xcdatamodeld in Sources */,
 				37EF862918BB27D100DCB929 /* AppDelegate.m in Sources */,
 				374C996118BDD89300FD55B1 /* Note.m in Sources */,
-				372F4F6718C0396000953FAF /* NoteNavigationViewController.m in Sources */,
 				37EF862518BB27D100DCB929 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
