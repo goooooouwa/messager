@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Note.h"
-#import "noteCreationDelegate.h"
 
 @interface NoteItemViewController : UIViewController <UITextViewDelegate>
 
 @property Note *note;
-@property id <noteCreationDelegate> noteCreationDelegate;
 
 @end
 

@@ -15,14 +15,25 @@
 @interface NoteListViewController ()
 
 @property (strong, nonatomic)NSArray *notes;
+@property (strong, nonatomic)NSManagedObjectContext *context;
 
 @end
 
 @implementation NoteListViewController
 
-- (void)noteShouldChange:(Note *)note
+- (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"note should change delegate: %@", note.content);
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
+    [self.tableView reloadData];
+}
+
+- (void)noteDidCreate:(Note *)note
+{
+    NSLog(@"note did create: %@", note.content);
     if (note.content.length > 0) {
         NSError *error;
         if (![self.context save:&error]) {
@@ -37,6 +48,11 @@
         [self.tableView reloadData];
     }
 }
+- (void)noteDidEdit:(Note *)note
+{
+    NSLog(@"note did edit: %@", note.content);
+    [self checkIfEmptyNote:note];
+}
 
 - (void)checkIfEmptyNote:(Note *)note
 {
@@ -48,6 +64,14 @@
             NSLog(@"%@",[error localizedDescription]);
         }
     }
+    
+    // get latest data
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
+    [self.tableView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -56,19 +80,6 @@
         NoteItemViewController *noteItemViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
-        noteItemViewController.noteCreationDelegate = self;
-    }
-    else if ([[segue identifier] isEqualToString:@"NewNote"]) {
-        NewNoteViewController *newNoteViewController = [segue destinationViewController];
-        
-        Note *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
-        NSError *error;
-        if (![self.context save:&error]) {
-            NSLog(@"%@",[error localizedDescription]);
-        }
-        
-        newNoteViewController.note = newNote;
-        newNoteViewController.noteCreationDelegate = self;
     }
 }
 

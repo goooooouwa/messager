@@ -7,10 +7,12 @@
 //
 
 #import "NoteItemViewController.h"
+#import "AppDelegate.h"
 
 @interface NoteItemViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic)NSManagedObjectContext *context;
 
 @end
 
@@ -26,12 +28,24 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.noteCreationDelegate noteShouldChange:self.note];
+    NSLog(@"save note: %@", self.note.content);
+    if ([self.note.content length] == 0) {
+        [self.context deleteObject:self.note];
+        self.note = nil;
+    }
+    
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"%@",[error localizedDescription]);
+    }
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [self.noteCreationDelegate checkIfEmptyNote:self.note];
+    // create a new managed object and assign to self.note, if self.note has been deleted from managed object context but the view will appear. Need a new note to show.
+    if (self.note == nil) {
+        self.note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -47,8 +61,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.context = delegate.managedObjectContext;
+
     self.textView.delegate = self;
-    //[self.note addObserver:self forKeyPath:@"content" options:NSKeyValueObservingOptionNew context:NULL];
     self.textView.text = self.note.content;
 }
 

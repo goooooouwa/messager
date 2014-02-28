@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="1387" y="-413"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Note Navigation View Controller-->
         <scene sceneID="f2g-5R-dmM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YGY-Y7-czj" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YGY-Y7-czj" customClass="NoteNavigationViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PuL-HL-PFo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

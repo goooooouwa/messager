@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NoteItemViewController.h"
-#import "noteCreationDelegate.h"
 
-@interface NoteListViewController : UITableViewController <noteCreationDelegate>
-
-@property (strong, nonatomic)NSManagedObjectContext *context;
+@interface NoteListViewController : UITableViewController
 
 @end

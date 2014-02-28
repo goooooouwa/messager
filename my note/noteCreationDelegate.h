@@ -10,7 +10,8 @@
 
 @protocol noteCreationDelegate <NSObject>
 
-- (void)noteShouldChange:(Note *)note;
+- (void)noteDidCreate:(Note *)note;
+- (void)noteDidEdit:(Note *)note;
 - (void)checkIfEmptyNote:(Note *)note;
 
 @end
