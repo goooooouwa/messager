@@ -27,6 +27,7 @@
 		37EF864C18BB282200DCB929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF864B18BB282200DCB929 /* Main.storyboard */; };
 		37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864E18BB289900DCB929 /* NoteListViewController.m */; };
 		37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865418BB2D0900DCB929 /* NoteItemViewController.m */; };
+		6EB1A8041BF869EB006BE4AC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		37EF864E18BB289900DCB929 /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		37EF865318BB2D0900DCB929 /* NoteItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteItemViewController.h; sourceTree = "<group>"; };
 		37EF865418BB2D0900DCB929 /* NoteItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteItemViewController.m; sourceTree = "<group>"; };
+		6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				37EF862718BB27D100DCB929 /* AppDelegate.h */,
 				37EF862818BB27D100DCB929 /* AppDelegate.m */,
 				37EF864B18BB282200DCB929 /* Main.storyboard */,
+				6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */,
 				37CB47D618BC6CC700681EBF /* NewNoteViewController.h */,
 				37CB47D718BC6CC700681EBF /* NewNoteViewController.m */,
 				37EF865318BB2D0900DCB929 /* NoteItemViewController.h */,
@@ -220,9 +223,12 @@
 		37EF860B18BB27D100DCB929 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Greg Xu";
 				TargetAttributes = {
+					37EF861218BB27D100DCB929 = {
+						DevelopmentTeam = P9BVJJMNCD;
+					};
 					37EF863218BB27D100DCB929 = {
 						TestTargetID = 37EF861218BB27D100DCB929;
 					};
@@ -253,6 +259,7 @@
 			files = (
 				37EF864C18BB282200DCB929 /* Main.storyboard in Resources */,
 				37EF862318BB27D100DCB929 /* InfoPlist.strings in Resources */,
+				6EB1A8041BF869EB006BE4AC /* Launch Screen.storyboard in Resources */,
 				37EF862E18BB27D100DCB929 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +331,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -339,6 +345,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -363,7 +370,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -397,9 +403,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "my note/my note-Prefix.pch";
 				INFOPLIST_FILE = "my note/my note-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,9 +419,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "my note/my note-Prefix.pch";
 				INFOPLIST_FILE = "my note/my note-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,7 +433,6 @@
 		37EF864918BB27D100DCB929 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/my note.app/my note";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -435,6 +446,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "my noteTests/my noteTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "app.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -444,7 +456,6 @@
 		37EF864A18BB27D100DCB929 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/my note.app/my note";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -454,6 +465,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "my note/my note-Prefix.pch";
 				INFOPLIST_FILE = "my noteTests/my noteTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "app.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
