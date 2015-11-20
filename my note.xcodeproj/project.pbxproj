@@ -27,11 +27,19 @@
 		37EF864C18BB282200DCB929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF864B18BB282200DCB929 /* Main.storyboard */; };
 		37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864E18BB289900DCB929 /* NoteListViewController.m */; };
 		37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865418BB2D0900DCB929 /* NoteItemViewController.m */; };
+		6E927FD41BFEF87600969D6D /* my_noteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E927FD31BFEF87600969D6D /* my_noteUITests.m */; };
 		6EB1A8041BF869EB006BE4AC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		37EF863918BB27D100DCB929 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37EF860B18BB27D100DCB929 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37EF861218BB27D100DCB929;
+			remoteInfo = "my note";
+		};
+		6E927FD61BFEF87600969D6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 37EF860B18BB27D100DCB929 /* Project object */;
 			proxyType = 1;
@@ -68,6 +76,9 @@
 		37EF864E18BB289900DCB929 /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		37EF865318BB2D0900DCB929 /* NoteItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteItemViewController.h; sourceTree = "<group>"; };
 		37EF865418BB2D0900DCB929 /* NoteItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteItemViewController.m; sourceTree = "<group>"; };
+		6E927FD11BFEF87600969D6D /* my noteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "my noteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E927FD31BFEF87600969D6D /* my_noteUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = my_noteUITests.m; sourceTree = "<group>"; };
+		6E927FD51BFEF87600969D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +105,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E927FCE1BFEF87600969D6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -102,6 +120,7 @@
 			children = (
 				37EF861E18BB27D100DCB929 /* my note */,
 				37EF863B18BB27D100DCB929 /* my noteTests */,
+				6E927FD21BFEF87600969D6D /* my noteUITests */,
 				37EF861518BB27D100DCB929 /* Frameworks */,
 				37EF861418BB27D100DCB929 /* Products */,
 			);
@@ -112,6 +131,7 @@
 			children = (
 				37EF861318BB27D100DCB929 /* my note.app */,
 				37EF863318BB27D100DCB929 /* my noteTests.xctest */,
+				6E927FD11BFEF87600969D6D /* my noteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,6 +199,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6E927FD21BFEF87600969D6D /* my noteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E927FD31BFEF87600969D6D /* my_noteUITests.m */,
+				6E927FD51BFEF87600969D6D /* Info.plist */,
+			);
+			path = "my noteUITests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,6 +246,24 @@
 			productReference = 37EF863318BB27D100DCB929 /* my noteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6E927FD01BFEF87600969D6D /* my noteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E927FD81BFEF87600969D6D /* Build configuration list for PBXNativeTarget "my noteUITests" */;
+			buildPhases = (
+				6E927FCD1BFEF87600969D6D /* Sources */,
+				6E927FCE1BFEF87600969D6D /* Frameworks */,
+				6E927FCF1BFEF87600969D6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E927FD71BFEF87600969D6D /* PBXTargetDependency */,
+			);
+			name = "my noteUITests";
+			productName = "my noteUITests";
+			productReference = 6E927FD11BFEF87600969D6D /* my noteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -230,6 +277,11 @@
 						DevelopmentTeam = P9BVJJMNCD;
 					};
 					37EF863218BB27D100DCB929 = {
+						TestTargetID = 37EF861218BB27D100DCB929;
+					};
+					6E927FD01BFEF87600969D6D = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = P9BVJJMNCD;
 						TestTargetID = 37EF861218BB27D100DCB929;
 					};
 				};
@@ -248,6 +300,7 @@
 			targets = (
 				37EF861218BB27D100DCB929 /* my note */,
 				37EF863218BB27D100DCB929 /* my noteTests */,
+				6E927FD01BFEF87600969D6D /* my noteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +322,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				37EF864018BB27D100DCB929 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E927FCF1BFEF87600969D6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +357,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E927FCD1BFEF87600969D6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E927FD41BFEF87600969D6D /* my_noteUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -304,6 +372,11 @@
 			isa = PBXTargetDependency;
 			target = 37EF861218BB27D100DCB929 /* my note */;
 			targetProxy = 37EF863918BB27D100DCB929 /* PBXContainerItemProxy */;
+		};
+		6E927FD71BFEF87600969D6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37EF861218BB27D100DCB929 /* my note */;
+			targetProxy = 6E927FD61BFEF87600969D6D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -472,6 +545,45 @@
 			};
 			name = Release;
 		};
+		6E927FD91BFEF87600969D6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "my noteUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.goooooouwa.my-noteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "my note";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		6E927FDA1BFEF87600969D6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "my noteUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.goooooouwa.my-noteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "my note";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -501,6 +613,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6E927FD81BFEF87600969D6D /* Build configuration list for PBXNativeTarget "my noteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E927FD91BFEF87600969D6D /* Debug */,
+				6E927FDA1BFEF87600969D6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
