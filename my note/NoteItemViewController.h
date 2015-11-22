@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Note.h"
+
+@class Note;
 
 @interface NoteItemViewController : UIViewController <UITextViewDelegate>
 

@@ -9,6 +9,7 @@
 #import "NoteListViewController.h"
 #import "AppDelegate.h"
 #import "NoteItemViewController.h"
+#import "Note.h"
 
 @interface NoteListViewController ()
 
