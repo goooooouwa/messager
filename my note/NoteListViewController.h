@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NoteItemViewController.h"
 
 @interface NoteListViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 

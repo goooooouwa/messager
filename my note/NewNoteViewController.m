@@ -8,6 +8,7 @@
 
 #import "NewNoteViewController.h"
 #import "AppDelegate.h"
+#import "Note.h"
 
 @interface NewNoteViewController ()
 
