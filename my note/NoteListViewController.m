@@ -188,11 +188,6 @@
     [self.searchResults removeAllObjects];
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF.content contains[c] %@",searchText];
     self.searchResults = [NSMutableArray arrayWithArray:[self.notes filteredArrayUsingPredicate:resultPredicate]];
-    
-    NSLog(@"search results:");
-    for (Note *note in self.searchResults) {
-        NSLog(@"note:%@", note.content);
-    }
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods

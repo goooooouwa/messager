@@ -28,7 +28,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"save note: %@", self.note.content);
     if ([self.note.content length] == 0) {
         [self.context deleteObject:self.note];
         self.note = nil;
@@ -71,7 +70,6 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     self.note.content = textView.text;
-    NSLog(@"text:%@ -> note:%@", textView.text, self.note.content);
 }
 
 - (void)didReceiveMemoryWarning
