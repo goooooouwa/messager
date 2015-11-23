@@ -33,15 +33,6 @@
     [self.tableView reloadData];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
-        NoteItemViewController *noteItemViewController = [segue destinationViewController];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
-    }
-}
-
 - (void)loadInitialData
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -169,7 +160,6 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -177,9 +167,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
+        NoteItemViewController *noteItemViewController = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
+    }
 }
-
- */
 
 #pragma mark Content Filtering
 
