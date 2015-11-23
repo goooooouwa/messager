@@ -179,7 +179,17 @@
     if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
         NoteItemViewController *noteItemViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        noteItemViewController.note = [self.notes objectAtIndex:indexPath.row];
+        Note *note = nil;
+        
+        if (self.searchDisplayController.isActive) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            note = [self.searchResults objectAtIndex:indexPath.row];
+        } else {
+            indexPath = [self.tableView indexPathForSelectedRow];
+            note = [self.notes objectAtIndex:indexPath.row];
+        }
+        
+        noteItemViewController.note = note;
     }
 }
 
