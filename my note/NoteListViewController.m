@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "NoteItemViewController.h"
 #import "Note.h"
+#import "NoteTableViewCell.h"
 
 @interface NoteListViewController ()
 
@@ -95,10 +96,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ListPrototypeCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"NoteTableViewCell";
+    NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[NoteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
@@ -108,7 +109,9 @@
     } else {
         note = [self.notes objectAtIndex:indexPath.row];
     }
-    cell.textLabel.text = note.content;
+    cell.nameLabel.text = note.content;
+    cell.previewLabel.text = note.content;
+    
     return cell;
 }
 

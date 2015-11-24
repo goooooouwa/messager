@@ -29,6 +29,7 @@
 		37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865418BB2D0900DCB929 /* NoteItemViewController.m */; };
 		6E927FD41BFEF87600969D6D /* my_noteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E927FD31BFEF87600969D6D /* my_noteUITests.m */; };
 		6EB1A8041BF869EB006BE4AC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */; };
+		6EE3B7D81C04A21D00B8F927 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3B7D71C04A21D00B8F927 /* NoteTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		6E927FD31BFEF87600969D6D /* my_noteUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = my_noteUITests.m; sourceTree = "<group>"; };
 		6E927FD51BFEF87600969D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
+		6EE3B7D61C04A21D00B8F927 /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTableViewCell.h; path = ../NoteTableViewCell.h; sourceTree = "<group>"; };
+		6EE3B7D71C04A21D00B8F927 /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTableViewCell.m; path = ../NoteTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 			children = (
 				37EF862718BB27D100DCB929 /* AppDelegate.h */,
 				37EF862818BB27D100DCB929 /* AppDelegate.m */,
+				6EE3B7D61C04A21D00B8F927 /* NoteTableViewCell.h */,
+				6EE3B7D71C04A21D00B8F927 /* NoteTableViewCell.m */,
 				37EF864B18BB282200DCB929 /* Main.storyboard */,
 				6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */,
 				37CB47D618BC6CC700681EBF /* NewNoteViewController.h */,
@@ -346,6 +351,7 @@
 				37EF862918BB27D100DCB929 /* AppDelegate.m in Sources */,
 				374C996118BDD89300FD55B1 /* Note.m in Sources */,
 				37EF862518BB27D100DCB929 /* main.m in Sources */,
+				6EE3B7D81C04A21D00B8F927 /* NoteTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
