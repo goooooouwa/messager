@@ -106,11 +106,13 @@
     Note *note = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         note = [self.searchResults objectAtIndex:indexPath.row];
+        cell.textLabel.text = note.content;
     } else {
         note = [self.notes objectAtIndex:indexPath.row];
+        cell.nameLabel.text = note.content;
+        cell.previewLabel.text = note.content;
     }
-    cell.nameLabel.text = note.content;
-    cell.previewLabel.text = note.content;
+
     
     return cell;
 }
