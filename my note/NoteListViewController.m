@@ -109,8 +109,13 @@
         cell.textLabel.text = note.content;
     } else {
         note = [self.notes objectAtIndex:indexPath.row];
-        cell.nameLabel.text = note.content;
-        cell.previewLabel.text = note.content;
+        NSArray *paragraphs = [note.content componentsSeparatedByString:@"\n"];
+        cell.nameLabel.text = paragraphs[0];
+        if (paragraphs.count > 1) {
+            cell.previewLabel.text = paragraphs[1];
+        } else {
+            cell.previewLabel.text = @"no additional text";
+        }
     }
 
     
