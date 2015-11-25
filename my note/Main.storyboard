@@ -43,7 +43,7 @@
                                             <rect key="frame" x="8" y="46" width="196" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -85,7 +85,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1438" y="-52"/>
+            <point key="canvasLocation" x="1322" y="-25"/>
         </scene>
         <!--Note Item View Controller-->
         <scene sceneID="xy6-vS-y0u">
