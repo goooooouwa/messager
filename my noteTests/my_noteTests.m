@@ -29,6 +29,7 @@
 - (void)testExample
 {
     // implement your test here
+    XCTAssert(true);
 }
 
 - (void)testPerformanceExample {
