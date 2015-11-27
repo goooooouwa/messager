@@ -188,7 +188,7 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"ShowNoteContent"]) {
         NoteItemViewController *noteItemViewController = [segue destinationViewController];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *indexPath = nil;
         Note *note = nil;
         
         if (self.searchDisplayController.isActive) {
