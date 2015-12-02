@@ -106,16 +106,11 @@
     Note *note = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         note = [self.searchResults objectAtIndex:indexPath.row];
-        cell.textLabel.text = note.content;
+        cell.textLabel.text = note.title;
     } else {
         note = [self.notes objectAtIndex:indexPath.row];
-        NSArray *paragraphs = [note.content componentsSeparatedByString:@"\n"];
-        cell.nameLabel.text = paragraphs[0];
-        if (paragraphs.count > 1) {
-            cell.previewLabel.text = paragraphs[1];
-        } else {
-            cell.previewLabel.text = @"no additional text";
-        }
+        cell.nameLabel.text = note.title;
+        cell.previewLabel.text = note.content;
     }
 
     
