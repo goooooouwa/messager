@@ -11,6 +11,7 @@
 #import "NoteItemViewController.h"
 #import "Note.h"
 #import "NoteTableViewCell.h"
+#import <Socket_IO_Client_Swift/Socket_IO_Client_Swift-Swift.h>
 
 @interface NoteListViewController ()
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *searchResults;
 @property (strong, nonatomic)NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic)SocketIOClient *socket;
 
 @end
 
@@ -58,6 +60,24 @@
     [super viewDidLoad];
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.context = delegate.managedObjectContext;
+    
+    self.socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:3001" options:@{@"log": @YES, @"forcePolling": @YES}];
+    [self.socket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
+        NSLog(@"socket connected");
+    }];
+    
+    [self.socket on:@"rt-change" callback:^(NSArray* data, SocketAckEmitter* ack) {
+//        double cur = [[data objectAtIndex:0] floatValue];
+//        
+//        [self.socket emitWithAck:@"canUpdate" withItems:@[@(cur)]](0, ^(NSArray* data) {
+//            [self.socket emit:@"update" withItems:@[@{@"amount": @(cur + 2.50)}]];
+//        });
+//        
+        [ack with:@[@"Got your rt-change, ", @"dude"]];
+    }];
+    
+    [self.socket connect];
+    
     CGRect newBounds = self.tableView.bounds;
     newBounds.origin.y = newBounds.origin.y + self.searchBar.bounds.size.height;
     self.tableView.bounds = newBounds;
