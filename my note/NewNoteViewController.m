@@ -12,6 +12,7 @@
 
 @interface NewNoteViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic)NSManagedObjectContext *context;
 @property Note *note;
@@ -61,9 +62,17 @@
     
     self.note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
     
+    self.titleTextField.delegate = self;
+    self.titleTextField.text = self.note.title;
+    
     self.textView.delegate = self;
     self.textView.text = self.note.content;
     [self.textView becomeFirstResponder];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.note.title = textField.text;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
