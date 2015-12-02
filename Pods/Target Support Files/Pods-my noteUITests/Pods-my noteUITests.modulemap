@@ -1,0 +1,6 @@
+framework module Pods_my_noteUITests {
+  umbrella header "Pods-my noteUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
