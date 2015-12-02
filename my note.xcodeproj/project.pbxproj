@@ -27,6 +27,7 @@
 		37EF864C18BB282200DCB929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF864B18BB282200DCB929 /* Main.storyboard */; };
 		37EF864F18BB289900DCB929 /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF864E18BB289900DCB929 /* NoteListViewController.m */; };
 		37EF865518BB2D0900DCB929 /* NoteItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EF865418BB2D0900DCB929 /* NoteItemViewController.m */; };
+		6E5C14A91C0ED59300364870 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6E5C14A81C0ED59300364870 /* Podfile */; };
 		6E927FD41BFEF87600969D6D /* my_noteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E927FD31BFEF87600969D6D /* my_noteUITests.m */; };
 		6EB1A8041BF869EB006BE4AC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB1A8031BF869EB006BE4AC /* Launch Screen.storyboard */; };
 		6EE3B7D81C04A21D00B8F927 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3B7D71C04A21D00B8F927 /* NoteTableViewCell.m */; };
@@ -77,6 +78,7 @@
 		37EF864E18BB289900DCB929 /* NoteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteListViewController.m; sourceTree = "<group>"; };
 		37EF865318BB2D0900DCB929 /* NoteItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteItemViewController.h; sourceTree = "<group>"; };
 		37EF865418BB2D0900DCB929 /* NoteItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteItemViewController.m; sourceTree = "<group>"; };
+		6E5C14A81C0ED59300364870 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 		6E927FD11BFEF87600969D6D /* my noteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "my noteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E927FD31BFEF87600969D6D /* my_noteUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = my_noteUITests.m; sourceTree = "<group>"; };
 		6E927FD51BFEF87600969D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		37EF861F18BB27D100DCB929 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6E5C14A81C0ED59300364870 /* Podfile */,
 				37EF862018BB27D100DCB929 /* my note-Info.plist */,
 				37EF862118BB27D100DCB929 /* InfoPlist.strings */,
 				37EF862418BB27D100DCB929 /* main.m */,
@@ -315,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E5C14A91C0ED59300364870 /* Podfile in Resources */,
 				37EF864C18BB282200DCB929 /* Main.storyboard in Resources */,
 				37EF862318BB27D100DCB929 /* InfoPlist.strings in Resources */,
 				6EB1A8041BF869EB006BE4AC /* Launch Screen.storyboard in Resources */,
