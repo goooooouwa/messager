@@ -12,6 +12,7 @@
 
 @interface Note : NSManagedObject
 
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * creationDate;
 

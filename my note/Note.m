@@ -11,6 +11,7 @@
 
 @implementation Note
 
+@dynamic title;
 @dynamic content;
 @dynamic creationDate;
 
