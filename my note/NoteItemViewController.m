@@ -12,6 +12,7 @@
 
 @interface NoteItemViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic)NSManagedObjectContext *context;
 
@@ -66,8 +67,16 @@
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.context = delegate.managedObjectContext;
 
+    self.titleTextField.delegate = self;
+    self.titleTextField.text = self.note.title;
+    
     self.textView.delegate = self;
     self.textView.text = self.note.content;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.note.title = textField.text;
 }
 
 - (void)textViewDidChange:(UITextView *)textView

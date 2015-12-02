@@ -10,7 +10,7 @@
 
 @class Note;
 
-@interface NoteItemViewController : UIViewController <UITextViewDelegate>
+@interface NoteItemViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate>
 
 @property Note *note;
 
