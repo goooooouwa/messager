@@ -46,7 +46,7 @@
     request.HTTPMethod = @"POST";
     
     // 3
-    NSDictionary *payloadDictionary = @{@"post":@{@"title":@"http://www.baidu.com"}};
+    NSDictionary *payloadDictionary = @{@"post":@{@"title":self.note.title}};
 
     NSData *payloadJSON = [NSJSONSerialization dataWithJSONObject:payloadDictionary
                                                    options:kNilOptions error:&error];
