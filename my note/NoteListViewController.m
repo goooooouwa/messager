@@ -85,7 +85,7 @@
         [fetchRequest setEntity:entity];
         self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
         [self.tableView reloadData];
-        [ack with:@[@"Got your rt-change, ", @"dude"]];
+        [ack with:@[@"Got your chat message, ", @"dude"]];
     }];
     
     [self.socket connect];
