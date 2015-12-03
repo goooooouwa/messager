@@ -74,7 +74,17 @@
 //        });
 //
         NSString *message = [data objectAtIndex:0];
-        NSLog(@"%@", message);
+        Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
+        note.content = message;
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"%@",[error localizedDescription]);
+        }
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
+        [fetchRequest setEntity:entity];
+        self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
+        [self.tableView reloadData];
         [ack with:@[@"Got your rt-change, ", @"dude"]];
     }];
     
