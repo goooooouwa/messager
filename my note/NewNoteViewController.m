@@ -33,6 +33,37 @@
     if (![self.context save:&error]) {
         NSLog(@"%@",[error localizedDescription]);
     }
+    
+    //post
+    // 1
+    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/posts.json"];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    [config setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    
+    // 2
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"POST";
+    
+    // 3
+    NSDictionary *payloadDictionary = @{@"post":@{@"title":@"http://www.baidu.com"}};
+
+    NSData *payloadJSON = [NSJSONSerialization dataWithJSONObject:payloadDictionary
+                                                   options:kNilOptions error:&error];
+    
+    if (!error) {
+        // 4
+        NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request
+                                                                   fromData:payloadJSON completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
+                                                                       // Handle response here
+                                                                       NSLog(@"response: %@", response);
+                                                                   }];
+        
+        // 5
+        [uploadTask resume];
+    }
+    
+    //emit message
 }
 
 - (void)viewWillAppear:(BOOL)animated
