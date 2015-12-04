@@ -71,7 +71,7 @@
 //
         NSString *message = [data objectAtIndex:0];
         Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
-        note.content = message;
+        note.title = message;
         NSError *error;
         if (![self.context save:&error]) {
             NSLog(@"%@",[error localizedDescription]);
