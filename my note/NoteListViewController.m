@@ -60,11 +60,7 @@
     [super viewDidLoad];
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.context = delegate.managedObjectContext;
-    
-    self.socket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:3001" options:@{@"log": @YES, @"forcePolling": @YES}];
-    [self.socket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
-        NSLog(@"socket connected");
-    }];
+    self.socket = delegate.appSocket;
     
     [self.socket on:@"chat message" callback:^(NSArray* data, SocketAckEmitter* ack) {
 //        double cur = [[data objectAtIndex:0] floatValue];
@@ -87,8 +83,6 @@
         [self.tableView reloadData];
         [ack with:@[@"Got your chat message, ", @"dude"]];
     }];
-    
-    [self.socket connect];
     
     CGRect newBounds = self.tableView.bounds;
     newBounds.origin.y = newBounds.origin.y + self.searchBar.bounds.size.height;

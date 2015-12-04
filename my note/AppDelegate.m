@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Socket_IO_Client_Swift/Socket_IO_Client_Swift-Swift.h>
 
 @implementation AppDelegate
 
@@ -16,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.appSocket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:3001" options:@{@"log": @YES, @"forcePolling": @YES}];
+    [self.appSocket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
+        NSLog(@"socket connected");
+    }];
+    [self.appSocket connect];
+    
     return YES;
 }
 
