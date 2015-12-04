@@ -78,6 +78,22 @@
         [ack with:@[@"Got your chat message, ", @"dude"]];
     }];
     
+    [self.socket on:@"rt-change" callback:^(NSArray* data, SocketAckEmitter* ack) {
+        NSString *message = [data objectAtIndex:0];
+        Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
+        note.content = message;
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"%@",[error localizedDescription]);
+        }
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.context];
+        [fetchRequest setEntity:entity];
+        self.notes = [self.context executeFetchRequest:fetchRequest error:&error];
+        [self.tableView reloadData];
+        [ack with:@[@"Got your chat message, ", @"dude"]];
+    }];
+    
     CGRect newBounds = self.tableView.bounds;
     newBounds.origin.y = newBounds.origin.y + self.searchBar.bounds.size.height;
     self.tableView.bounds = newBounds;
