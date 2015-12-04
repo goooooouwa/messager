@@ -31,7 +31,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    if ([self.note.content length] == 0) {
+    if (([self.note.title length] == 0) && ([self.note.content length] == 0)) {
         [self.context deleteObject:self.note];
         self.note = nil;
     }
