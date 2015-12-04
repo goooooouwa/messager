@@ -9,12 +9,14 @@
 #import "NewNoteViewController.h"
 #import "AppDelegate.h"
 #import "Note.h"
+#import <Socket_IO_Client_Swift/Socket_IO_Client_Swift-Swift.h>
 
 @interface NewNoteViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic)NSManagedObjectContext *context;
+@property (strong, nonatomic)SocketIOClient *socket;
 @property Note *note;
 
 @end
@@ -64,6 +66,7 @@
     }
     
     //emit message
+    [self.socket emit:@"chat message" withItems:@[self.note.title]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -90,6 +93,7 @@
 	// Do any additional setup after loading the view.
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.context = delegate.managedObjectContext;
+    self.socket = delegate.appSocket;
     
     self.note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
     
