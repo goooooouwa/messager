@@ -63,12 +63,6 @@
     self.socket = delegate.appSocket;
     
     [self.socket on:@"chat message" callback:^(NSArray* data, SocketAckEmitter* ack) {
-//        double cur = [[data objectAtIndex:0] floatValue];
-//        
-//        [self.socket emitWithAck:@"canUpdate" withItems:@[@(cur)]](0, ^(NSArray* data) {
-//            [self.socket emit:@"update" withItems:@[@{@"amount": @(cur + 2.50)}]];
-//        });
-//
         NSString *message = [data objectAtIndex:0];
         Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.context];
         note.title = message;
