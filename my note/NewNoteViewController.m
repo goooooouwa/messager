@@ -38,7 +38,7 @@
     
     //post
     // 1
-    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/posts.json"];
+    NSURL *url = [NSURL URLWithString:@"https://myapi-service.herokuapp.com/posts.json"];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     [config setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];

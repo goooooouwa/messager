@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.appSocket = [[SocketIOClient alloc] initWithSocketURL:@"localhost:3001" options:@{@"log": @YES, @"forcePolling": @YES}];
+    self.appSocket = [[SocketIOClient alloc] initWithSocketURL:@"https://my-chatserver.herokuapp.com" options:@{@"log": @YES, @"forcePolling": @YES}];
     [self.appSocket on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
         NSLog(@"socket connected");
     }];
